@@ -1,3 +1,6 @@
+import doctest
+
+
 class Film:
     def __init__(self, name: str, dur: int):
         """
@@ -12,7 +15,6 @@ class Film:
         self.duration = dur
         self._comm = None  # Комментарий к фильму, по умолчанию отсутствует, для добавления применить метод add_comm
         self._accordance = None  # Параметр соответствия фильма теме, по умолчанию отсутствует, добавляется методом
-
 
     def add_comm(self, message: str):
         """
@@ -66,7 +68,6 @@ class Film:
         Соответствие фильма теме:9.0
         """
         print(f'Соответствие фильма теме:{self._accordance}')
-
 
     @property
     def duration(self):
@@ -132,7 +133,6 @@ class HistoricalFilm(Film):
         self._comm = None
         self._accordance = None
 
-
     def __str__(self):  # Перегрузка необходима в связи с добавлением слова "исторический" и параметра (век)
         """
         Магический метод __str__
@@ -169,12 +169,13 @@ class HistoricalFilm(Film):
         print(f'Степень исторического соответствия:{self._accordance}')
 
 
-
 if __name__ == "__main__":
     # Write your solution here
+
     """
     Унаследованы методы add_accordance, add_comm и write_comm. Метод check_accordance перегружен
     Возможные проверки на соответствие века формату цифр опущены, так как век может быть указан
     с модификатором до н.э или н.э.
     """
+    doctest.testmod()
     pass
